@@ -403,6 +403,62 @@ nav#menu-principal a[aria-current="page"] {
 }
 
 /* ============================================================
+======Modal de aviso
+================================================================== */
+.modal-fondo {
+  position: fixed;
+  inset: 0;
+  background: rgba(42, 36, 38, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--espacio-sm);
+  z-index: 1000;
+}
+
+.modal-caja {
+  position: relative;
+  background: var(--color-fondo-blanco);
+  border-radius: var(--radio-borde);
+  box-shadow: var(--sombra-elevada);
+  max-width: 440px;
+  width: 100%;
+  padding: var(--espacio-lg) var(--espacio-md) var(--espacio-md);
+  text-align: center;
+}
+
+.modal-caja h2 {
+  display: inline-block;
+  margin-bottom: var(--espacio-sm);
+}
+
+.modal-caja p {
+  color: var(--color-texto-claro);
+  margin-bottom: var(--espacio-md);
+}
+
+.modal-cerrar {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-texto-claro);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color var(--transicion), color var(--transicion);
+}
+
+.modal-cerrar:hover {
+  background-color: var(--color-fondo-alterno);
+  color: var(--color-texto);
+}
+
+/* ============================================================
    Tarjetas
    ============================================================ */
 .tarjeta {

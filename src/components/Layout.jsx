@@ -1,11 +1,25 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, NavLink, Outlet } from 'react-router-dom';
+import AvisoVersion from './AvisoVersion.jsx';
 
 export default function Layout() {
 	const [menuAbierto, setMenuAbierto] = useState(false);
+	const [avisoVisible, setAvisoVisible] = useState(false);
+
+	useEffect(() => {
+		if (!sessionStorage.getItem(AvisoVersion.claveSesion)) {
+			setAvisoVisible(true);
+		}
+	}, []);
+
+	function cerrarAviso() {
+		sessionStorage.setItem(AvisoVersion.claveSesion, '1');
+		setAvisoVisible(false);
+	}
 
 	return (
 		<>
+			{avisoVisible && <AvisoVersion onCerrar={cerrarAviso} />}
 			<a className="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
 
 			{/* Barra institucional */}
@@ -47,7 +61,6 @@ export default function Layout() {
 						<nav id="menu-principal" aria-label="Menú principal" className={menuAbierto ? 'menu-abierto' : ''}>
 							<ul className="menu-nav">
 								<li><NavLink to="/" end>Inicio</NavLink></li>
-								<li><NavLink to="/buscador-ciudadano">Búsqueda</NavLink></li>
 								<li><NavLink to="/preguntas-frecuentes">Preguntas frecuentes</NavLink></li>
 								<li><NavLink to="/contacto">Contáctanos</NavLink></li>
 							</ul>
