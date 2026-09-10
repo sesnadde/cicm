@@ -36,7 +36,7 @@ export default function Inicio() {
 							<h3>Busca en el catálogo de variables</h3>
 							<p>Filtra por tema, proceso, nivel geográfico y periodicidad en un solo buscador, simple y accesible para toda la ciudadanía.</p>
 						</div>
-						<Link to="/buscador-ciudadano" className="boton cta-buscador-boton">Ir al buscador</Link>
+						<Link to="/buscador" className="boton cta-buscador-boton">Ir al buscador</Link>
 					</div>
 				</div>
 			</section>
